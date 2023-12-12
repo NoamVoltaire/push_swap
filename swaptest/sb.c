@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:25:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/10 12:09:49 by noam             ###   ########.fr       */
+/*   Updated: 2023/12/12 19:27:31 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,27 @@ void	pb(t_block **b_lst, t_block **lst)
 {
 	t_block *tmp;
 
-	tmp = (*lst)->next;
-	if (!(*b_lst))
-		*b_lst = ft_lstnew((*lst)->content);
+	if (!*lst)
+		return ;
+	tmp = (*lst);
+	if ((*lst)->next == *lst)
+	{
+		tmp = ft_lstnew((*lst)->content);
+		ft_lstadd_front(&(*b_lst), tmp);
+		(*lst)->prev->next = (*lst)->next;
+		(*lst)->next->prev = (*lst)->prev;
+		free (*lst);
+		*(lst) = NULL;
+		return ;
+	}
 	else
 	{
 		tmp = ft_lstnew((*lst)->content);
 		ft_lstadd_front(&(*b_lst), tmp);
+		(*lst)->prev->next = (*lst)->next;
+		(*lst)->next->prev = (*lst)->prev;
 	}
-	(*lst)->prev->next = (*lst)->next;
-	(*lst)->next->prev = (*lst)->prev;
 	*lst = (*lst)->next;
-	// free (lst);
-	
-	/*else
-		fn new (lst->content ) for b_lst*/
-	// lst = b_lst;
-	// b_lst = tmp;
 }
 
 void	rb(t_block **lst)

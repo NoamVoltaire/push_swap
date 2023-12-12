@@ -3,10 +3,125 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 22:32:13 by noam              #+#    #+#             */
-/*   Updated: 2023/12/07 22:32:32 by noam             ###   ########.fr       */
+/*   Updated: 2023/12/12 19:28:08 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap_header.h"
+#include "push_swap_header.h"
+
+int	main(int ac, char **av)
+{
+	int		i;
+	t_block	*anode;
+	t_block	*bnode;
+	t_block	*tmp;
+	char	**argsss;
+
+	anode = NULL;
+	bnode = NULL;
+	argsss = NULL;
+	i = ac -1;
+	if (ac <= 1)
+		return (errors());
+	else if (ac == 2)
+	{
+		argsss = ft_split(av[1], 32);
+		i = count_args(argsss);
+	}
+	else
+		argsss = av;
+	check_things(argsss);
+	fillstack(&anode, &bnode, argsss, i);
+	// free (anode);
+	// free (bnode);
+	// free (argsss);
+}
+
+void	fillstack(t_block **a, t_block **b, char **args, int i)
+{
+	t_block	*tmp;
+	int		len;
+
+	len = i;
+	*a = ft_lstnew(ft_atoi(args[i]));
+	i--;
+	while (i > 0)
+	{
+		tmp = ft_lstnew(ft_atoi(args[i]));
+		ft_lstadd_front(&(*a), tmp);
+		i--;
+	}
+	// free(tmp);
+	start_sort(a, b, len);
+	return ;
+}
+
+void	start_sort(t_block **a, t_block **b, int len)
+{
+	if (len <= 1)
+		return ;
+	else if (len == 2)
+	{
+		if (cmp_lst(a))
+			sa(&(*a));
+	}
+	else if (len == 3)
+		sort_three(a);
+			// pa(&(*a), &(*b));
+			// pa(&(*a), &(*b));
+			// pa(&(*a), &(*b));
+			// pb(&(*a), &(*b));
+			// pb(&(*a), &(*b));
+			// pb(&(*a), &(*b));
+
+
+	else if (len < 7)
+		sort_six(a, b, len);
+	// else
+		// mergesort(a ,b , 0, len);
+	
+	
+	ft_lstiter(*a, print);
+	ft_printf("euuuuh\n");
+	ft_lstiter(*b, print);
+	return ;
+	// 123
+	// 321
+	// 312
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+void	ft_lstiter(t_block *lst, void (*f)(int))
+{
+	int i = 6; // 
+
+	t_block *tmp = lst;
+		f(lst->content);
+		lst = lst->next;
+	while (tmp->content != lst->content)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+}
+
+
+void	print(int nb)
+{
+	ft_printf("nb = %d\n",nb);
+}	

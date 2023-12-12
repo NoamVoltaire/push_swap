@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:33:53 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/08 13:15:23 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:08:43 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ char	**ft_split(char const *s, char c)
 	char	**tab;
 
 	i = 0;
-	j = 0;
+	j = 1;
 	if (s == NULL)
 		return (NULL);
-	tab = (char **)malloc(sizeof(char *) * (wordcount((char *)s, c) + 1));
+	tab = (char **)malloc(sizeof(char *) * (wordcount((char *)s, c) + 2));
 	if (tab == NULL)
 		return (NULL);
 	while (s[i])
@@ -84,6 +84,17 @@ char	**ft_split(char const *s, char c)
 	return (tab);
 }
 
+
+int	count_args(char **argsss)
+{
+	int	i;
+
+	i = 0;
+	while (argsss[i + 1] != 0)
+		i++;
+	ft_printf("le num%d\n", i);
+	return (i);
+}
 // int	main(int ac, char **av)
 // {
 // 	char	**tab = ft_split(av[1], ' ');

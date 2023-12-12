@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_header.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/10 13:35:58 by noam             ###   ########.fr       */
+/*   Updated: 2023/12/12 17:46:19 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,24 @@ typedef struct s_node
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_block;
+
+char	**ft_split(char const *s, char c);
+int		errors(void);
+
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	check_things(char **arg);
+
+
+int		count_args(char **argsss);
+
+void	fillstack(t_block **a, t_block **b, char **args, int i);
+void	start_sort(t_block **a, t_block **b, int len);
+void	sort_three(t_block **a);
+void	sort_six(t_block **a, t_block **b, int len);
+
+
+int		cmp_lst(t_block **lst);
+int		cmp_stack(t_block **a, t_block **b);
 
 void	print(int nb);
 void	ft_lstiter(t_block *lst, void (*f)(int));
@@ -42,5 +60,5 @@ void	pb(t_block **b_lst, t_block **lst);
 void	ss(t_block **a, t_block **b);
 void	rr(t_block **a, t_block **b);
 void	rrr(t_block **a, t_block **b);
-int	ft_printf(const char *form, ...);
+int		ft_printf(const char *form, ...);
 #endif

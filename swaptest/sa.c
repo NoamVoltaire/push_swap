@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:25:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/10 03:32:11 by noam             ###   ########.fr       */
+/*   Updated: 2023/12/12 18:09:49 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 // #include "ft_printf/ft_printf.h"
 
+// void	sa(t_block **lst)
+// {
+// 	t_block	*tmp;
+// 	t_block	*sectmp;
+
+// 	tmp = (*lst)->next;
+// 	(*lst)->next = tmp->next;
+// 	tmp->next = *lst;
+// 	tmp->prev = (*lst)->prev;
+// 	(*lst)->prev = tmp;
+// 	*lst = tmp;
+// 	ft_printf("sa\n");
+// }
 
 void	sa(t_block **lst)
 {
@@ -20,12 +33,15 @@ void	sa(t_block **lst)
 
 	tmp = (*lst)->next;
 	(*lst)->next = tmp->next;
-	tmp->prev = (*lst)->prev;
-	(*lst)->prev = tmp;
+	tmp->next->prev = tmp;
 	tmp->next = *lst;
+	tmp->prev = (*lst)->prev;
+	tmp->prev->next = tmp;
+	(*lst)->prev = tmp;
 	*lst = tmp;
 	ft_printf("sa\n");
-}
+} 
+// DO THE SAME FOR SB!!!
 
 // void	ra(t_block **lst) // ?? I DID IT TOTALLY WRONG AAARGHHH
 // {
@@ -82,7 +98,7 @@ void	rra(t_block **lst)
 	t_block	*tmp;
 
 	*lst = (*lst)->prev;
-	ft_printf("ra\n");
+	ft_printf("rra\n");
 }
 // void	sb(t_block **lst)
 // {
