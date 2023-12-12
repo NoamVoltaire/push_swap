@@ -50,7 +50,7 @@ int	main(int ac, char **av)
 		ft_lstiter(node, print);
 		sa(&node);
 		ft_lstiter(node, print);
-		ra(&node);
+		ra(&node, node);
 		ft_lstiter(node, print);
 	}
 }
