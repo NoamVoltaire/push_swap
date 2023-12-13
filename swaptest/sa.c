@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:25:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/12 18:09:49 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:07:27 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	pa(t_block **lst, t_block **b_lst)
 		fn new (lst->content ) for b_lst*/
 	// lst = b_lst;
 	// b_lst = tmp;
+	write(1, "pa\n", 3);
 }
 
 void	ra(t_block **lst)

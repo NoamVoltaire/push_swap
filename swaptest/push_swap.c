@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 22:32:13 by noam              #+#    #+#             */
-/*   Updated: 2023/12/12 19:28:08 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/13 18:20:08 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,27 +66,31 @@ void	start_sort(t_block **a, t_block **b, int len)
 		return ;
 	else if (len == 2)
 	{
-		if (cmp_lst(a))
-			sa(&(*a));
+		if (!cmp_lst(a))
+			ra(&(*a));
 	}
 	else if (len == 3)
 		sort_three(a);
 			// pa(&(*a), &(*b));
 			// pa(&(*a), &(*b));
-			// pa(&(*a), &(*b));
 			// pb(&(*a), &(*b));
 			// pb(&(*a), &(*b));
 			// pb(&(*a), &(*b));
+			// rra(a);
+			// sa(a);
+			// ra(a);
+			// ra(a);
 
 
-	else if (len < 7)
-		sort_six(a, b, len);
+	// else if (len < 7)
+	// 	sort_six(a, b, len);
 	// else
 		// mergesort(a ,b , 0, len);
 	
 	
+			// pa(&(*a), &(*b));
 	ft_lstiter(*a, print);
-	ft_printf("euuuuh\n");
+	ft_printf("euuuuh%d\n",len);
 	ft_lstiter(*b, print);
 	return ;
 	// 123

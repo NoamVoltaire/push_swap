@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:25:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/12 19:27:31 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/13 17:20:49 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	pb(t_block **b_lst, t_block **lst)
 		(*lst)->next->prev = (*lst)->prev;
 	}
 	*lst = (*lst)->next;
+	write(1, "pb\n", 3);
 }
 
 void	rb(t_block **lst)
@@ -76,7 +77,7 @@ void	rb(t_block **lst)
 	t_block	*tmp;
 
 	*lst = (*lst)->next;
-	ft_printf("ra\n");
+	ft_printf("rb\n");
 }
 
 void	rrb(t_block **lst)
@@ -84,7 +85,7 @@ void	rrb(t_block **lst)
 	t_block	*tmp;
 
 	*lst = (*lst)->prev;
-	ft_printf("ra\n");
+	ft_printf("rrb\n");
 }
 // void	sb(t_block **lst)
 // {

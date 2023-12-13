@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/12 17:46:19 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/13 13:58:11 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	sort_six(t_block **a, t_block **b, int len);
 
 int		cmp_lst(t_block **lst);
 int		cmp_stack(t_block **a, t_block **b);
+int		cmp_whole(t_block **a, int len);
+
 
 void	print(int nb);
 void	ft_lstiter(t_block *lst, void (*f)(int));
