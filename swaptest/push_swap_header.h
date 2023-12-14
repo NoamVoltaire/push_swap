@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/14 18:14:30 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:23:41 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_first
 
 typedef struct s_node
 {
-	int				content;
+	long			content;
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_block;
@@ -34,7 +34,7 @@ typedef struct s_node
 char	**ft_split(char const *s, char c);
 int		errors(void);
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
+// int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	check_things(char **arg);
 
 
@@ -59,7 +59,7 @@ void	ft_lstiter(t_block *lst, void (*f)(int));
 t_block	*ft_lstnew(int content);
 void	ft_lstadd_front(t_block **lst, t_block *new);
 int		ft_atoi(const char *nptr);
-void	sa(t_block *lst);
+void	sa(t_block **lst);
 void	ra(t_block **lst);
 void	rra(t_block **lst);
 void	pa(t_block **lst, t_block **b_lst);

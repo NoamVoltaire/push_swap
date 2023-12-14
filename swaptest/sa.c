@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:25:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/14 18:18:26 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:15:25 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,45 +44,50 @@ int	len_stack(t_block *lst)
 	return (i);
 }
 
-void	sa(t_block *lst)
-{
-	t_block	*first;
-	t_block	*second;
-	t_block	*third;
-	t_block	*last;
-
-	first = lst;
-	second = first->next;
-	third = second->next;
-	last = first->prev;
-	lst = second;
-	second->next = first;
-	second->prev = last;
-	first->next = third;
-	first->prev = second;
-	last->next = second;
-	if (len_stack(lst) == 3)
-	{
-		last->prev = first;
-		third->next = second;
-	}
-	third->prev = first;
-}
-
-// void	sa(t_block **lst)
+// void	sa(t_block *lst)
 // {
-// 	t_block	*tmp;
+// 	t_block	*first;
+// 	t_block	*second;
+// 	t_block	*third;
+// 	t_block	*last;
 
-// 	tmp = (*lst)->next;
-// 	(*lst)->next = tmp->next;
-// 	tmp->next->prev = tmp;
-// 	tmp->next = *lst;
-// 	tmp->prev = (*lst)->prev;
-// 	tmp->prev->next = tmp;
-// 	(*lst)->prev = tmp;
-// 	*lst = tmp;
-// 	ft_printf("sa\n");
+// 	first = lst;
+// 	second = first->next;
+// 	third = second->next;
+// 	last = first->prev;
+// 	lst = second;
+// 	second->next = first;
+// 	second->prev = last;
+// 	first->next = third;
+// 	first->prev = second;
+// 	last->next = second;
+// 	if (len_stack(lst) == 3)
+// 	{
+// 		last->prev = first;
+// 		third->next = second;
+// 	}
+// 	third->prev = first;
 // }
+
+void	sa(t_block **lst)
+{
+	t_block	*tmp;
+
+	if ((*lst)->next->next == (*lst))
+	{
+		(*lst) = (*lst)->next;
+		return ;
+	}
+	tmp = (*lst)->next;
+	(*lst)->next = tmp->next;
+	tmp->next->prev = tmp;
+	tmp->next = *lst;
+	tmp->prev = (*lst)->prev;
+	tmp->prev->next = tmp;
+	(*lst)->prev = tmp;
+	*lst = tmp;
+	ft_printf("sa\n");
+}
 // DO THE SAME FOR SB!!!
 
 // void	ra(t_block **lst) // ?? I DID IT TOTALLY WRONG AAARGHHH

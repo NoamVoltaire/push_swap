@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 22:32:13 by noam              #+#    #+#             */
-/*   Updated: 2023/12/14 18:35:37 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:19:58 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,15 @@ void	fillstack(t_block **a, t_block **b, char **args, int i)
 
 void	start_sort(t_block **a, t_block **b, int len)
 {
+	
 	if (len <= 1)
+		return ;
+	else if (cmp_whole(a, len) == -1)
 		return ;
 	else if (len == 2)
 	{
 		if (!cmp_lst(a))
-			ra(&(*a));
-			// sa(&a);
+			sa(a);
 	}
 	else if (len == 3)
 		sort_three(a);

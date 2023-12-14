@@ -6,17 +6,18 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:29:12 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/12 12:57:33 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 20:30:27 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
+#include <limits.h>
 
 int	ft_atoi(const char *nptr)
 {
 	int	i;
 	int	sign;
-	int	sum;
+	long	sum;
 
 	sum = 0;
 	sign = 1;
@@ -36,6 +37,8 @@ int	ft_atoi(const char *nptr)
 		sum = sum * 10 + (nptr[i] - '0');
 		i++;
 	}
+	if ((sum * sign) < INT_MIN || sum > INT_MAX)
+		return (errors());
 	return (sum * sign);
 }
 
