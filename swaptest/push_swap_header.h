@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/13 13:58:11 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:14:30 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
+
+typedef struct s_first
+{
+	int				nb_struct;
+	struct s_node	*first;
+}	t_first;
+
 
 typedef struct s_node
 {
@@ -45,13 +52,14 @@ int		cmp_whole(t_block **a, int len);
 
 
 void	print(int nb);
+int		len_stack(t_block *lst);
 void	ft_lstiter(t_block *lst, void (*f)(int));
 
 
 t_block	*ft_lstnew(int content);
 void	ft_lstadd_front(t_block **lst, t_block *new);
 int		ft_atoi(const char *nptr);
-void	sa(t_block **lst);
+void	sa(t_block *lst);
 void	ra(t_block **lst);
 void	rra(t_block **lst);
 void	pa(t_block **lst, t_block **b_lst);

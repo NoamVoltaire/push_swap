@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:58:23 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/13 18:22:07 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:34:34 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	unsort_three(t_block **lst)
 
 void	sort_six(t_block **a, t_block **b, int len)
 {
+	
 	int	sum;
 	int	tmp;
 	
@@ -91,22 +92,24 @@ void	sort_six(t_block **a, t_block **b, int len)
 	
 	
 	
-	/*
-	int	sum;
-	int	tmp;
+	
+	// int	sum;
+	// int	tmp;
+	// int	dummyflagidk;
 
-	sum = cmp_whole(a, len);
-	tmp = sum;
-	ft_printf("usm = %d\n", sum);
-	if (sum == -1)
-		return ;
-	while (sum--)
-		rra(a);
-	sum = tmp;
-	while (tmp--)
-		pa(a, b);
-	tmp = sum;
-	unsort_three(b);
+	// dummyflagidk = 3;
+	// sum = cmp_whole(a, len);
+	// tmp = sum;
+	// ft_printf("usm = %d\n", sum);
+	// if (sum == -1)
+	// 	return ;
+	// while (sum--)
+	// 	rra(a);
+	// sum = tmp;
+	// while (tmp-- && dummyflagidk--)
+	// 	pa(a, b);
+	// tmp = sum;
+	// unsort_three(b);
 	// rra(a);
 	// tmp--;
 	// while (sum--)
@@ -118,7 +121,7 @@ void	sort_six(t_block **a, t_block **b, int len)
 	
 	// else
 	ft_printf("noooo\n");
-	*/
+	
 }
 
 // 12345

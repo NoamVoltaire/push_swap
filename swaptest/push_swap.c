@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 22:32:13 by noam              #+#    #+#             */
-/*   Updated: 2023/12/13 18:20:08 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/14 18:35:37 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int ac, char **av)
 		argsss = av;
 	check_things(argsss);
 	fillstack(&anode, &bnode, argsss, i);
+	start_sort(&anode, &bnode, i);
 	// free (anode);
 	// free (bnode);
 	// free (argsss);
@@ -55,8 +56,6 @@ void	fillstack(t_block **a, t_block **b, char **args, int i)
 		ft_lstadd_front(&(*a), tmp);
 		i--;
 	}
-	// free(tmp);
-	start_sort(a, b, len);
 	return ;
 }
 
@@ -68,6 +67,7 @@ void	start_sort(t_block **a, t_block **b, int len)
 	{
 		if (!cmp_lst(a))
 			ra(&(*a));
+			// sa(&a);
 	}
 	else if (len == 3)
 		sort_three(a);
