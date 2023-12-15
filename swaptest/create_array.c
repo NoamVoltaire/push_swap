@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_array.c                                       :+:      :+:    :+:   */
+/*   create_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:38:14 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/15 16:26:15 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:52:52 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 
-void	print_array_test(long **array)
+void	static print_array_test(long **array)
 {
 	int i = 0;
 	int	j = 0;
@@ -24,6 +24,22 @@ void	print_array_test(long **array)
 		i++;
 	}
 }
+long	static *fill_array(long **array, t_block *lst, int i)
+{
+	long	*index_and_value;
+	t_block	*tmp;
+	// long	i;
+	
+	i++;
+	index_and_value = (long *)malloc(sizeof(long) * 2);
+	if (index_and_value == NULL)
+		return (NULL);
+	index_and_value[0] = i;
+	index_and_value[1] = lst->content;
+	ft_printf("BABABOOEY\n");
+	return(index_and_value);
+}
+
 long	**create_array(t_block **a, int len)
 {
 	long **array;
@@ -36,12 +52,14 @@ long	**create_array(t_block **a, int len)
 		return(NULL);
 	while (len--)
 	{
-		array[i] = fill_array(array, tmp, i);
+		array[i] = fill_array(array, tmp, len);
 		i++;
 		tmp = tmp->next;	
 	}
 	array[i] = 0;
-	print_array_test(array);
+/*															SORTING ARRAY TIME*/
+	// sort aray
+	print_array_test(array, i);
 	return (array);	
 }
 // int		**fill_array(int **array, t_block **lst, int len)
@@ -69,21 +87,7 @@ long	**create_array(t_block **a, int len)
 
 
 
-long	*fill_array(long **array, t_block *lst, int i)
-{
-	long	*index_and_value;
-	t_block	*tmp;
-	// long	i;
-	
-	i++;
-	index_and_value = (long *)malloc(sizeof(long) * 2);
-	if (index_and_value == NULL)
-		return (NULL);
-	index_and_value[0] = i;
-	index_and_value[1] = lst->content;
-	ft_printf("BABABOOEY\n");
-	return(index_and_value);
-}
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/15 16:09:04 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/15 17:38:22 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_things(char **arg);
 int		count_args(char **argsss);
 
 long	**create_array(t_block **a, int len);
-long	*fill_array(long **array, t_block *lst, int i);
+// long	*fill_array(long **array, t_block *lst, int i);
 
 void	fillstack(t_block **a, t_block **b, char **args, int i);
 void	start_sort(t_block **a, t_block **b, int len);
