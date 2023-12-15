@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/14 20:23:41 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:09:04 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 # include <stdlib.h>
 # include "ft_printf/ft_printf.h"
 
-typedef struct s_first
-{
-	int				nb_struct;
-	struct s_node	*first;
-}	t_first;
+// typedef struct s_first
+// {
+// 	int				nb_struct;
+// 	struct s_node	*first;
+// }	t_first;
 
 
 typedef struct s_node
 {
 	long			content;
+	// long			index;
+	
 	struct s_node	*next;
 	struct s_node	*prev;
 }	t_block;
@@ -39,6 +41,9 @@ void	check_things(char **arg);
 
 
 int		count_args(char **argsss);
+
+long	**create_array(t_block **a, int len);
+long	*fill_array(long **array, t_block *lst, int i);
 
 void	fillstack(t_block **a, t_block **b, char **args, int i);
 void	start_sort(t_block **a, t_block **b, int len);

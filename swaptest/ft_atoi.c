@@ -6,17 +6,20 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:29:12 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/14 20:30:27 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/15 13:10:25 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 #include <limits.h>
 
+/*	ft_atoi that return Error if :*/
+/*	not a number*/
+/*	overflow	*/
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	sign;
+	int		i;
+	int		sign;
 	long	sum;
 
 	sum = 0;
@@ -30,7 +33,7 @@ int	ft_atoi(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	if (nptr[i] < '0' || nptr[i] > '9') //
+	if (nptr[i] < '0' || nptr[i] > '9')
 		return (errors()); //
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{

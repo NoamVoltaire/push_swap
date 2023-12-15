@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 22:32:13 by noam              #+#    #+#             */
-/*   Updated: 2023/12/14 20:19:58 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:23:50 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int ac, char **av)
 	t_block	*bnode;
 	t_block	*tmp;
 	char	**argsss;
+	long	**arrayyy;
 
 	anode = NULL;
 	bnode = NULL;
@@ -36,16 +37,18 @@ int	main(int ac, char **av)
 		argsss = av;
 	check_things(argsss);
 	fillstack(&anode, &bnode, argsss, i);
+	arrayyy = create_array(&anode, i);
 	start_sort(&anode, &bnode, i);
-	// free (anode);
+	free (anode);
 	// free (bnode);
-	// free (argsss);
+	free (argsss);
 }
 
 void	fillstack(t_block **a, t_block **b, char **args, int i)
 {
 	t_block	*tmp;
 	int		len;
+	// int		**array;
 
 	len = i;
 	*a = ft_lstnew(ft_atoi(args[i]));
@@ -56,6 +59,9 @@ void	fillstack(t_block **a, t_block **b, char **args, int i)
 		ft_lstadd_front(&(*a), tmp);
 		i--;
 	}
+	// array = (int **)malloc(sizeof(int *) * len + 1);
+	// if (!array)
+		// ft_printf("oh hell nah\n");
 	return ;
 }
 
@@ -82,7 +88,7 @@ void	start_sort(t_block **a, t_block **b, int len)
 			// sa(a);
 			// ra(a);
 			// ra(a);
-
+	// copy_to_tab(a, len);
 
 	// else if (len < 7)
 	// 	sort_six(a, b, len);
@@ -100,7 +106,6 @@ void	start_sort(t_block **a, t_block **b, int len)
 	// 312
 	
 }
-
 
 
 
