@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_header.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2023/12/15 17:38:22 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/16 17:06:31 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ void	check_things(char **arg);
 
 int		count_args(char **argsss);
 
+void	print_array_test(long **array);
 long	**create_array(t_block **a, int len);
+void	sort_array(long **arr,int len);
 // long	*fill_array(long **array, t_block *lst, int i);
 
 void	fillstack(t_block **a, t_block **b, char **args, int i);

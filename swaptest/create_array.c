@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   create_array.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 14:38:14 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/15 17:52:52 by nvoltair         ###   ########.fr       */
+/*   Updated: 2023/12/16 18:01:43 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 
-void	static print_array_test(long **array)
+void	print_array_test(long **array)
 {
 	int i = 0;
-	int	j = 0;
+	// int	j = 0;
 
 	ft_printf("alooooors\n\n");
 	while (array[i] != 0)
@@ -58,10 +58,13 @@ long	**create_array(t_block **a, int len)
 	}
 	array[i] = 0;
 /*															SORTING ARRAY TIME*/
-	// sort aray
-	print_array_test(array, i);
+	sort_array(array, i);
+	print_array_test(array);
 	return (array);	
 }
+
+
+
 // int		**fill_array(int **array, t_block **lst, int len)
 // {
 // 	t_block	*tmp;
