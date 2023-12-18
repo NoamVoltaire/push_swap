@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 17:46:25 by nvoltair          #+#    #+#             */
-/*   Updated: 2023/12/16 19:38:28 by noam             ###   ########.fr       */
+/*   Updated: 2023/12/17 13:32:27 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,19 @@ void	compare_and_rewrite(long **arr, long **a1, long **a2, int s, int l1, int l2
 void	write_in_sub_arrays(long **arr, long **a1, int start, int len)
 {
 	int	i;
-	long euh;
+	// long euh;
 	// int	j;
 	// int	len1;
 	// int	len2;
 
 	// j = 0;
 	i = 0;
-	// euh = (long *)malloc(sizeof(long) * 2);
+	while (i < len)
+	{
+		a1[i] = (long *)malloc(sizeof(long) * 2);
+		i++;
+	}
+	i = 0;
 	// len1 = (m - s + 1);
 	// len2 = (e - m);
 	while (i < len)
@@ -73,9 +78,11 @@ void	write_in_sub_arrays(long **arr, long **a1, int start, int len)
 
 void	merge(long **arr, int s, int m, int e)
 {
-	long **a1;
-	long **a2;
-	
+	long	**a1;
+	long	**a2;
+	int		i;
+
+	i = 0;
 	// a1 = create_sub_arr(,);
 	a1 = (long **)malloc(sizeof(long *) * (m - s + 1));
 	a2 = (long **)malloc(sizeof(long *) * (e - m));
@@ -85,8 +92,19 @@ void	merge(long **arr, int s, int m, int e)
 	print_array_test(a1);
 	ft_printf("up is a1 down is a2\n");
 	print_array_test(a2);
-	// free(a1);
-	// free(a2);
+	// 	while (i < (m - s + 1))
+	// {
+	// 	free(a1[i]);
+	// 	i++;
+	// }
+	// i = 0;
+	// 	while (i < (e - m))
+	// {
+	// 	free(a2[i]);
+	// 	i++;
+	// }
+	free(a1);
+	free(a2);
 }
 
 
@@ -96,13 +114,12 @@ void	merge_sort(long **arr, int s, int e)
 
 	if ((e - s + 1) > 1)
 	{
-	mid = (e + s)/ 2;
-	merge_sort(arr, s, mid);
-	merge_sort(arr, (mid + 1), e);
-	merge(arr, s, mid, e);
-	print_array_test(arr);
+		mid = (e + s)/ 2;
+		merge_sort(arr, s, mid);
+		merge_sort(arr, (mid + 1), e);
+		merge(arr, s, mid, e);
+		print_array_test(arr);
 	}
-	
 }
 
 void	sort_array(long **arr, int len)
