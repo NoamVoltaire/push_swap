@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 00:20:34 by noam              #+#    #+#             */
-/*   Updated: 2024/02/01 21:16:45 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/02 16:44:30 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 int	main(int ac, char **av)
 {
-	// t_block	*a;
-	// t_block	*b;
+	t_block	*a;
+	t_block	*b;
 	char	**args;
 	int		len;
 
-	// a = NULL;
-	// b = NULL;
+	a = NULL;
+	b = NULL;
 	args = NULL;
 	len = ac - 1;
 	if (ac < 2)
@@ -35,5 +35,44 @@ int	main(int ac, char **av)
 	else
 		args = (av + 1);
 	check_input(args);
+	fillstack(&a, args, len);
+	start_sort(&a, &b, len);
+	ft_lstiter(a, print);
+
 	// create_array(args, len);
 }
+
+
+/*
+*
+*
+*	TEST FUNCTIONS
+*
+*
+*
+*/
+void	ft_lstiter(t_block *lst, void (*f)(int))
+{
+	int i = 6; // 
+
+	if (!lst)
+	{
+		printf("empty list\n");	
+		return ;
+	}
+	t_block *tmp = lst;
+		f(lst->content);
+		lst = lst->next;
+	while (tmp->content != lst->content)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
+	printf("\n\n");
+}
+
+
+void	print(int nb)
+{
+	printf("nb = %d\n",nb);
+}	

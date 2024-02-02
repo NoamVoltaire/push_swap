@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_header.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2024/02/01 11:08:48 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/02 13:00:51 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
+# include <unistd.h>
 // # include "ft_printf/ft_printf.h"
 
 // typedef struct s_first
@@ -27,7 +28,7 @@
 typedef struct s_node
 {
 	long			content;
-	long			index;
+	// long			index;
 	// long			index;
 	
 	struct s_node	*next;
@@ -48,11 +49,11 @@ long	**create_array(char **args, int len);
 void	sort_array(long **arr, int len);
 // long	*fill_array(long **array, t_block *lst, int i);
 
-void	fillstack(t_block **a, t_block **b, char **args, int i, long **array);
-void	start_sort(t_block **a, t_block **b, int len, long **array);
+void	fillstack(t_block **a, char **args, int i);
+void	start_sort(t_block **a, t_block **b, int len);
 void	sort_three(t_block **a);
 void	sort_six(t_block **a, t_block **b, int len);
-void	sort_big(t_block **a, t_block **b, int len, long **array);
+void	sort_big(t_block **a, t_block **b, int len);
 
 
 int		cmp_lst(t_block **lst);
