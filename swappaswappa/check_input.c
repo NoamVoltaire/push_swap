@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:34:39 by noam              #+#    #+#             */
-/*   Updated: 2024/01/30 16:51:18 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/01 11:05:37 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	check_input(char **arg)
 		{
 			if (!is_nb(arg[i]))
 				errors();
+			ft_atoi(arg[i]);
 			if (!ft_strncmp(arg[i], arg[i + index], 12))
 				errors();
 			index++;

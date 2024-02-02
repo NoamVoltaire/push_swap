@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2024/01/30 16:35:59 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/01 11:08:48 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_input(char **arg);
 int		count_args(char **argsss);
 
 void	print_array_test(long **array);
-long	**create_array(t_block **a, int len);
+long	**create_array(char **args, int len);
 void	sort_array(long **arr, int len);
 // long	*fill_array(long **array, t_block *lst, int i);
 

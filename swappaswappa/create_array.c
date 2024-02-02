@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:33:55 by noam              #+#    #+#             */
-/*   Updated: 2024/01/30 16:54:53 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/01 11:20:38 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ void	print_array_test(long **array)
 	int i = 0;
 	// int	j = 0;
 
-	ft_printf("alooooors\n\n");
+	printf("alooooors\n\n");
 	while (array[i] != 0)
 	{
-		ft_printf(" index and value = %d %d\n", array[i][0], array[i][1]);
+		printf(" index and value = %d %d\n", array[i][0], array[i][1]);
 		i++;
 	}
 }
-long	static *fill_array(long **array, t_block *lst, int i)
+long	static *fill_array(long **array, int value, int i)
 {
 	long	*index_and_value;
-	t_block	*tmp;
+	// t_block	*tmp;
 	// long	i;
 	
 	i++;
@@ -35,12 +35,12 @@ long	static *fill_array(long **array, t_block *lst, int i)
 	if (index_and_value == NULL)
 		return (NULL);
 	index_and_value[0] = i;
-	index_and_value[1] = lst->content;
-	ft_printf("BABABOOEY\n");
+	index_and_value[1] = value;
+	printf("BABABOOEY\n");
 	return(index_and_value);
 }
 
-long	**create_array(char **array, int len)
+long	**create_array(char **args, int len)
 {
 	long **array;
 	// t_block *tmp;
@@ -52,14 +52,14 @@ long	**create_array(char **array, int len)
 		return(NULL);
 	while (len--)
 	{
-		array[i] = fill_array(array, tmp, len);
+		array[i] = fill_array(array, ft_atoi(args[i]), len);
 		i++;
-		tmp = tmp->next;	
+		// tmp = tmp->next;	
 	}
 	array[i] = 0;
 /*															SORTING ARRAY TIME*/
 	print_array_test(array);
-	sort_array(array, i);
+	// sort_array(array, i);
 	return (array);	
 }
 
