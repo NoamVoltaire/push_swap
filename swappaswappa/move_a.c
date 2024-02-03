@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:34:31 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/02 12:56:06 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:24:49 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,22 @@ void	sa(t_block **lst)
 void	pa(t_block **lst, t_block **b_lst)
 {
 	t_block	*tmp;
-
 	tmp = (*lst)->next;
+	
+	if ((*lst)->next == *lst)
+	{
+		if (!(*b_lst))
+			*b_lst = ft_lstnew((*lst)->content);
+		else
+		{
+			tmp = ft_lstnew((*lst)->content);
+			ft_lstadd_front(&(*b_lst), tmp);
+		}
+		free (*lst);
+		*lst = NULL;
+	}
+	else
+	{
 	if (!(*b_lst))
 		*b_lst = ft_lstnew((*lst)->content);
 	else
@@ -64,6 +78,7 @@ void	pa(t_block **lst, t_block **b_lst)
 	(*lst)->prev->next = (*lst)->next;
 	(*lst)->next->prev = (*lst)->prev;
 	*lst = (*lst)->next;
+	}
 	write(1, "pa\n", 3);
 }
 void	ra(t_block **lst)

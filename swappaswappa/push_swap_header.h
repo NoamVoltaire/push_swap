@@ -6,7 +6,7 @@
 /*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 21:12:20 by noam              #+#    #+#             */
-/*   Updated: 2024/02/02 13:00:51 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/03 15:37:26 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ void	start_sort(t_block **a, t_block **b, int len);
 void	sort_three(t_block **a);
 void	sort_six(t_block **a, t_block **b, int len);
 void	sort_big(t_block **a, t_block **b, int len);
+
+void 	go(t_block **a, int *index, int n);
+int partition(t_block **a, t_block **b, int low, int high, int *index);
+void	quicksort(t_block **a, t_block **b, int low, int end, int *index);
+
+
 
 
 int		cmp_lst(t_block **lst);
