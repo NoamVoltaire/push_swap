@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:30:52 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/02 13:34:27 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/04 13:56:02 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	start_sort(t_block **a, t_block **b, int len)
 	else if (len == 3)
 		sort_three(a);
 	else
-	// return ;
 		sort_big(a, b, len);
+	// return ;
 
 }

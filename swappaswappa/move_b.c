@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_b.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:36:33 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/03 16:19:24 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/03 23:29:05 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	pb(t_block **b_lst, t_block **lst)
 		free (*lst);
 		// free (lst);
 		*(lst) = NULL;
+		write(1, "pb\n", 3);
 		return ;
 	}
 	else

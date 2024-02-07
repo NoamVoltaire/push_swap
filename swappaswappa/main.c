@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 00:20:34 by noam              #+#    #+#             */
-/*   Updated: 2024/02/03 17:03:32 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/06 17:07:22 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,26 @@ int	main(int ac, char **av)
 	*index = 0; 
 	// ft_lstiter(a, print);
 
-	printf("pivot index %d\n", partition(&a, &b, 0, len - 1, index));
+	// printf("pivot index %d\n", partition(&a, &b, 0, len - 1, index));
 	// quicksort(&a, &b, 0, len - 1, index);
 
 	// go(&a, index, 2);
 	// start_sort(&a, &b, len);
+
+	
+	ft_lstiter(a, print);
+	quicksort(&a, &b, 0, len - 1, index);
+	ft_lstiter(a, print);
 	go(&a, index, 0);
 	ft_lstiter(a, print);
-	ft_lstiter(b, print);
+
+
+	
+	// sa(&a);
+	// ra(&a);
+	
+	// ft_lstiter(a, print);
+	// ft_lstiter(b, print);
 	// ft_lstiter(a, print);
 
 	// create_array(args, len);
@@ -69,8 +81,8 @@ int	main(int ac, char **av)
 */
 void	ft_lstiter(t_block *lst, void (*f)(int))
 {
-	int i = 6; // 
-
+	// int i = 6; // 
+	
 	if (!lst)
 	{
 		printf("empty list\n");	
@@ -84,11 +96,11 @@ void	ft_lstiter(t_block *lst, void (*f)(int))
 		f(lst->content);
 		lst = lst->next;
 	}
-	printf("\n\n");
+	printf("\n");
 }
 
 
 void	print(int nb)
 {
-	printf("nb = %d\n",nb);
+	printf("%d ",nb);
 }	

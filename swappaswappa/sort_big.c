@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 13:10:43 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/03 17:03:46 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/06 18:02:00 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int median_of_three(t_block **a, int low, int high)
 // {
 	
 // }
+
 // int	partition(t_block **a, t_block **b, int low, int high)
 // {
 // 	int pivot;
@@ -103,15 +104,77 @@ int median_of_three(t_block **a, int low, int high)
 // }
 
 
-void	quicksort(t_block **a, t_block **b, int low, int end, int *index)
+void	quicksort(t_block **a, t_block **b, int low, int high, int *index)
 {
 	int ipivot;
-	if (low < end)
+	int nlow, nhigh, nmiddle;
+	if (high - low == 1)
 	{
-		ipivot = partition(a, b, low, end, index);
+		go(a, index, low);
+		nlow = (*a)->content;
+		nhigh = (*a)->next->content;
+		if (nhigh < nlow)
+			sa(a);
+		return ;
+	}
+	if (high - low == 2)
+	{
+		go(a, index, low);
+		nlow = (*a)->content;
+		nmiddle = (*a)->next->content;
+		nhigh = (*a)->next->next->content;
+		if (nlow < nmiddle && nmiddle < nhigh){
+			return ;
+		}
+		if (nmiddle < nhigh && nhigh < nlow){
+			sa(a);
+			ra(a);
+			(*index)++;
+			sa(a);
+			printf("mhl, sa ra sa\n");
+			return ;}
+		if (nhigh < nlow && nlow < nmiddle){
+			pa(a, b);
+			sa(a);
+			ra(a);
+			(*index)++;
+			pb(a, b);
+			return ;}
+		if (nmiddle < nlow && nlow < nhigh){
+			sa(a);
+			return ;}
+		if (nlow < nhigh && nhigh < nmiddle){
+			ra(a);
+			(*index)++;
+			sa(a);
+			return ;}
+		if (nhigh < nmiddle && nmiddle < nlow){
+			pa(a, b);
+			sa(a);
+			pb(a, b);
+			return;
+		}
+
+			/*
+			lmh: -
+			mhl: sa ra sa
+			hlm: pa sa ra pb
+			mlh: sa
+			lhm: ra sa
+			hml: pa sa pb
+			*/
+		
+			
+			// if (nlow)
+
+		return;
+	}
+	if (low < high)
+	{
+		ipivot = partition(a, b, low, high, index);
 			// ft_lstiter((*a), print);
 			// ft_lstiter((*b), print);
-		quicksort(a, b, ipivot + 1, end, index);
+		quicksort(a, b, ipivot + 1, high, index);
 		quicksort(a, b, low, ipivot - 1, index);
 	}
 }
@@ -202,12 +265,17 @@ void	arrayquick(t_block **a, int len)
 }
 void	sort_big(t_block **a, t_block **b, int len)
 {
-	int *index;
+	int	*index;
+	int iindex;
+
+	index = &iindex;
 	*index = 0;
-	arrayquick(a, len);
+	ft_lstiter((*a), print);
+	// arrayquick(a, len);
 	// int *array;
 	// array = create_array(a, len);
 	// quicksort_array(array, 0, len);
+
 	quicksort(a, b, 0, len -1, index);
 	go(a, index, 0);
 	// ft_lstiter((*a), print);
