@@ -1,3 +1,12 @@
 {
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "breadcrumbs.enabled": false,
+    "workbench.editor.tabSizingFixedMinWidth": 60,
+    "workbench.editor.tabSizing": "fit",
+    "window.density.editorTabHeight": "compact",
+    "workbench.editor.tabSizingFixedMaxWidth": 400,
+    "editor.minimap.enabled": false,
+    "editor.formatOnType": true,
+    "editor.quickSuggestionsDelay": 20,
+    "editor.lineNumbers": "on"
 }

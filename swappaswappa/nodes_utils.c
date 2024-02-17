@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   nodes_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:18:48 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/02 11:20:44 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:41:02 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 
-t_block	*ft_lstnew(int content)
+t_block	*ft_lstnew(int content, int index)
 {
 	t_block	*mynode;
 
@@ -20,6 +20,7 @@ t_block	*ft_lstnew(int content)
 	if (mynode == NULL)
 		return (NULL);
 	mynode->content = content;
+	mynode->index = index;
 	mynode->next = mynode;
 	mynode->prev = mynode;
 	return (mynode);

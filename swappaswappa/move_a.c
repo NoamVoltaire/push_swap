@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_a.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:34:31 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/03 16:24:49 by nvoltair         ###   ########.fr       */
+/*   Updated: 2024/02/16 22:26:18 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ void	sa(t_block **lst)
 void	pa(t_block **lst, t_block **b_lst)
 {
 	t_block	*tmp;
+
 	tmp = (*lst)->next;
-	
 	if ((*lst)->next == *lst)
 	{
 		if (!(*b_lst))
-			*b_lst = ft_lstnew((*lst)->content);
+			*b_lst = ft_lstnew((*lst)->content, (*lst)->index);
 		else
 		{
-			tmp = ft_lstnew((*lst)->content);
+			tmp = ft_lstnew((*lst)->content, (*lst)->index);
 			ft_lstadd_front(&(*b_lst), tmp);
 		}
 		free (*lst);
@@ -69,18 +69,19 @@ void	pa(t_block **lst, t_block **b_lst)
 	else
 	{
 	if (!(*b_lst))
-		*b_lst = ft_lstnew((*lst)->content);
+		*b_lst = ft_lstnew((*lst)->content, (*lst)->index);
 	else
 	{
-		tmp = ft_lstnew((*lst)->content);
+		tmp = ft_lstnew((*lst)->content, (*lst)->index);
 		ft_lstadd_front(&(*b_lst), tmp);
 	}
 	(*lst)->prev->next = (*lst)->next;
 	(*lst)->next->prev = (*lst)->prev;
 	*lst = (*lst)->next;
 	}
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }
+
 void	ra(t_block **lst)
 {
 	t_block	*tmp;
@@ -89,6 +90,7 @@ void	ra(t_block **lst)
 	// ft_printf("ra\n");
 	write(1, "ra\n", 3);
 }
+
 void	rra(t_block **lst)
 {
 	t_block	*tmp;

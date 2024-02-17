@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:36:33 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/03 23:29:05 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/16 22:26:30 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	sb(t_block **lst)
 	tmp->next = *lst;
 	*lst = tmp;
 	// ft_printf("sa\n");
-	write(1, "sa\n", 3);
+	write(1, "sb\n", 3);
 }
 void	pb(t_block **b_lst, t_block **lst)
 {
@@ -34,7 +34,7 @@ void	pb(t_block **b_lst, t_block **lst)
 	tmp = (*lst);
 	if ((*lst)->next == *lst)
 	{
-		tmp = ft_lstnew((*lst)->content);
+		tmp = ft_lstnew((*lst)->content, (*lst)->index);
 		ft_lstadd_front(&(*b_lst), tmp);
 		(*lst)->prev->next = (*lst)->next;
 		(*lst)->next->prev = (*lst)->prev;
@@ -46,13 +46,13 @@ void	pb(t_block **b_lst, t_block **lst)
 	}
 	else
 	{
-		tmp = ft_lstnew((*lst)->content);
+		tmp = ft_lstnew((*lst)->content, (*lst)->index);
 		ft_lstadd_front(&(*b_lst), tmp);
 		(*lst)->prev->next = (*lst)->next;
 		(*lst)->next->prev = (*lst)->prev;
 	}
 	*lst = (*lst)->next;
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 }
 void	rb(t_block **lst)
 {

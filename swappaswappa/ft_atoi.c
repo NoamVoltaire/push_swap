@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 14:29:12 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/01 11:06:33 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/10 17:46:04 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	if ((sum * sign) < INT_MIN || sum > INT_MAX)
-		return (errors());
+		return (errors(NULL, NULL));
 	return (sum * sign);
 }
 

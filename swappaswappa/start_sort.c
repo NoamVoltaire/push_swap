@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:30:52 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/04 13:56:02 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/13 23:19:32 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void	start_sort(t_block **a, t_block **b, int len)
 		sort_three(a);
 	else
 		sort_big(a, b, len);
-	// return ;
+	return ;
 
 }

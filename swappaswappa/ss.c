@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   initialization.c                                   :+:      :+:    :+:   */
+/*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/02 11:14:04 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/13 23:18:11 by noam             ###   ########.fr       */
+/*   Created: 2023/12/10 13:30:03 by noam              #+#    #+#             */
+/*   Updated: 2024/02/14 14:56:23 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_header.h"
 
-void	fillstack(t_block **a, int **array, int i)
+void	ss(t_block **a, t_block **b)
 {
-	t_block	*tmp;
-	// int		len;
-	// int		**array;
+	sa(&(*a));
+	sb(&(*b));
+	write(1, "ss\n", 3);
+}
 
-	i -= 1;
-	*a = ft_lstnew(array[i][0], array[i][1]);
-	i--;
-	while (i >= 0)
-	{
-		tmp = ft_lstnew(array[i][0], array[i][1]);
-		ft_lstadd_front(&(*a), tmp);
-		i--;
-	}
-	printf("i = %d\n", i);
-	// array = (int **)malloc(sizeof(int *) * len + 1);
-	// if (!array)
-		// ft_printf("oh hell nah\n");
-	return ;
+void	rr(t_block **a, t_block **b)
+{
+	(*a) = (*a)->next;
+	(*b) = (*b)->next;
+	write(1, "rr\n", 3);
+}
+
+void	rrr(t_block **a, t_block **b)
+{
+	(*a) = (*a)->prev;
+	(*b) = (*b)->prev;
+	write(1, "rrr\n", 4);
 }

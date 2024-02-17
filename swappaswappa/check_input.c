@@ -6,7 +6,7 @@
 /*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:34:39 by noam              #+#    #+#             */
-/*   Updated: 2024/02/01 11:05:37 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/08 21:34:43 by noam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	static	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	return (sum);
 }
-int	static is_nb(char *arg)
+
+int static	is_nb(char *arg)
 {
 	int	i;
 
@@ -41,6 +42,7 @@ int	static is_nb(char *arg)
 	}
 	return (1);
 }
+
 void	check_input(char **arg)
 {
 	long	index;
@@ -54,13 +56,13 @@ void	check_input(char **arg)
 		while (arg[i + index])
 		{
 			if (!is_nb(arg[i]))
-				errors();
+				errors(NULL,NULL);
 			ft_atoi(arg[i]);
 			if (!ft_strncmp(arg[i], arg[i + index], 12))
-				errors();
+				errors(NULL,NULL);
 			index++;
 		}
-	i++;
+		i++;
 	}
 }
 
