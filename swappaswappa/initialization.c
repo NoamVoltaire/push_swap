@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialization.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:14:04 by nvoltair          #+#    #+#             */
-/*   Updated: 2024/02/13 23:18:11 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/17 14:48:02 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	fillstack(t_block **a, int **array, int i)
 		ft_lstadd_front(&(*a), tmp);
 		i--;
 	}
-	printf("i = %d\n", i);
+	// printf("i = %d\n", i);
 	// array = (int **)malloc(sizeof(int *) * len + 1);
 	// if (!array)
 		// ft_printf("oh hell nah\n");

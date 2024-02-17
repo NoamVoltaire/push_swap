@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_turk_algo.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 21:22:46 by noam              #+#    #+#             */
-/*   Updated: 2024/02/16 23:03:49 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/17 14:37:26 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void	before_push(t_block **lst, t_block *target_node)
 	while ((*lst)->content != target_node->content)
 	{
 		if (target_node->above_median)
-			rb(lst);
+			ra(lst);
 		else
-			rrb(lst);
+			rra(lst);
 	}
+	// if ((*lst)->content > target_node->content)
+		// ra(lst);
 }
 
 void	set_node(t_block *a, t_block *b, t_big *header_node)
@@ -54,10 +56,11 @@ void	set_node(t_block *a, t_block *b, t_big *header_node)
 		best_match = 2147483647;
 		tmp_a = a;
 		j = header_node->len_a;
-		printf("3nd\n");
+		// printf("3nd\n");
+		// printf("lena = %d lenb = %d\n", header_node->len_a, header_node->len_b);
 		while (j--)
 		{
-			printf("best match = %ld\n", best_match);
+			// printf("best match = %ld\n", best_match);
 			if (tmp_a->content > b->content && tmp_a->content < best_match)
 			{
 				best_match = tmp_a->content;
@@ -69,6 +72,7 @@ void	set_node(t_block *a, t_block *b, t_big *header_node)
 			b->node = find_min(a, header_node->len_a);
 		else
 			b->node = the_node;
+		// printf("b->node->content = %ld\n", b->node->content);
 		b = b->next;
 	}
 }
@@ -105,7 +109,9 @@ void	init_stacks(t_block *a, t_block *b, t_big *header_node)
 
 void	push_bucks_to_a(t_block **a, t_block **b, t_big **header_node)
 {
-	// before_push(b, (*b)->node);
+	before_push(a, (*b)->node);
+	// if ((*a)->content > (*b)->content)
+		// ra(a);
 	pb(a, b);
 	(*header_node)->len_a++;
 	(*header_node)->len_b--;

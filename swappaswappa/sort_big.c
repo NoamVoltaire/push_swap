@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 23:20:16 by noam              #+#    #+#             */
-/*   Updated: 2024/02/16 23:04:50 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/17 14:37:18 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,14 @@ void	sort_big(t_block **a, t_block **b, int len)
 	{
 		push_bucks_to_b(a, b, len);
 		sort_three(a);
-	ft_lstiter(*a, print);
-	ft_lstiter(*b, print);
+	// pb(a, b);
+	// pb(a, b);
 		while (*b)
 		{
+	// ft_lstiter(*a, print);
+	// ft_lstiter(*b, print);
 			init_stacks(*a, *b, header_node);
-			printf("hello\n");
+			// printf("helloooooooooooooooooooooooooooooooooooooooooooo\n");
 			push_bucks_to_a(a, b, &header_node);
 		}
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noam <noam@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nvoltair <nvoltair@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 00:20:34 by noam              #+#    #+#             */
-/*   Updated: 2024/02/13 23:42:04 by noam             ###   ########.fr       */
+/*   Updated: 2024/02/17 14:49:01 by nvoltair         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	index_and_and_sort(char **args, int **array, int len)
 	j = 0;
 	sorted = create_array(args, len);
 	quicksort_array(sorted, 0, len -1);
-	print_array_test(sorted);
+	// print_array_test(sorted);
 	while (array[j])
 	{
 				// printf("ARRAY[J] = %d	", array[j][0]);
@@ -31,14 +31,14 @@ void	index_and_and_sort(char **args, int **array, int len)
 		{
 			if (array[j][0] == sorted[i][0])
 			{
-			printf("hey\n");
+			// printf("hey\n");
 				array[j][1] = i;
 				j++;
 			}
 			i++;
 		}
-			printf("i = %d	", i);
-			printf("j = %d\n", j);
+			// printf("i = %d	", i);
+			// printf("j = %d\n", j);
 		len--;
 	}
 	free (sorted);
@@ -110,10 +110,11 @@ int	main(int ac, char **av)
 	check_input(args);
 	pre_init_stack(args, len, &a, &b);
 	start_sort(&a, &b, len);
-	
+	free(a);
+	free(b);
 	// fillstack(&a, args, len);
 	// *index = 0; 
-	ft_lstiter(a, print);
+	// ft_lstiter(a, print);
 
 	// printf("pivot index %d\n", partition(&a, &b, 0, len - 1, index));
 	// quicksort(&a, &b, 0, len - 1, index);
@@ -134,7 +135,7 @@ int	main(int ac, char **av)
 	// ra(&a);
 	
 	// ft_lstiter(a, print);
-	ft_lstiter(b, print);
+	// ft_lstiter(b, print);
 	// ft_lstiter(a, print);
 
 	// create_array(args, len);
